@@ -57,22 +57,22 @@ class XenConfPaser(object):
             try:
                 vifName = re.findall(r"vifname ?= ?.*[,|']", vif)[0].rsplit("=")[1].strip(' ').rstrip(",").rstrip("'")
             except:
-                print "Info: vif Name is not seted."
+                #print "Info: vif Name is not seted."
                 vifName = None
             try:
                 vifIp = re.findall(r"ip ?= ?[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}", vif)[0].rsplit("=")[1].strip(' ')
             except:
-                print "Info: vif Ip is not seted."
+                #print "Info: vif Ip is not seted."
                 vifIp = None
             try:
                 vifMac = re.findall(r"mac ?= ?..:..:..:..:..:..", vif)[0].rsplit("=")[1].strip(' ')
             except:
-                print "Info: vif Mac is not seted."
+                #print "Info: vif Mac is not seted."
                 vifMac = None
             try:
                 vifBridge = re.findall(r"bridge ?= ?.*[,|']", vif)[0].rsplit("=")[1].strip(' ')
             except:
-                print "Info: vif Bridge is not seted."
+                #print "Info: vif Bridge is not seted."
                 vifBridge = None
             listVifObjekts.append(VifObject.VifObjekt(vifBridge, vifIp, vifMac, vifName))
         self.__xenConf = XenConfObject.XenConfObjekt(
